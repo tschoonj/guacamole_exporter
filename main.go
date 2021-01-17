@@ -239,7 +239,7 @@ func releaseToken(endpoint string, token string) {
 		log.Println("releaseToken Do failed", err)
 		return
 	}
-	log.Println("token released!")
+	//log.Println("token released!")
 }
 
 func main() {
