@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - master
-  pull_request:
+  pull_request_target:
     branches:
       - master
 
@@ -25,3 +25,9 @@ jobs:
           go-version: ${{ matrix.go-version }} # The Go version to download (if necessary) and use.
       - run: |
           go build
+          go test -v
+        env:
+          GUACAMOLE_ENDPOINT: ${{ secrets.guacamoleEndpoint }}
+          GUACAMOLE_USERNAME: ${{ secrets.guacamoleUsername }}
+          GUACAMOLE_PASSWORD: ${{ secrets.guacamolePassword }}
+          GUACAMOLE_DATASOURCE: ${{ secrets.guacamoleDataSource }}
