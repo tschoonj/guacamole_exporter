@@ -13,7 +13,7 @@ To run it:
 ## Exported Metrics
 | Metric | Description |
 | ------ | ------- |
-| guacamole_up | Was the last Guacamole query successful | |
+| guacamole_up | Was the last Guacamole query successful |
 | guacamole_connection_history_total | The total number of established connections |
 | guacamole_number_of_users  | The current number of registered users |
 | guacamole_number_of_active_connections| The current number of active connections |

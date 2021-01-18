@@ -154,12 +154,12 @@ func getConnectionHistory(endpoint string, token string, dataSource string) (int
 
 	body, err := getBody(token, _url)
 	if err != nil {
-		return 0, err
+		return -1, err
 	}
 
 	var raw []interface{}
 	if err := json.Unmarshal(body, &raw); err != nil {
-		return 0, err
+		return -1, err
 	}
 
 	return len(raw), nil
@@ -170,12 +170,12 @@ func getUsers(endpoint string, token string, dataSource string) (int, error) {
 
 	body, err := getBody(token, _url)
 	if err != nil {
-		return 0, err
+		return -1, err
 	}
 
 	var raw map[string]interface{}
 	if err := json.Unmarshal(body, &raw); err != nil {
-		return 0, err
+		return -1, err
 	}
 
 	return len(raw), nil
@@ -186,12 +186,12 @@ func getActiveConnections(endpoint string, token string, dataSource string) (int
 
 	body, err := getBody(token, _url)
 	if err != nil {
-		return 0, err
+		return -1, err
 	}
 
 	var raw map[string]interface{}
 	if err := json.Unmarshal(body, &raw); err != nil {
-		return 0, err
+		return -1, err
 	}
 
 	return len(raw), nil
