@@ -2,6 +2,8 @@ on:
   release:
     types: [created]
 
+name: Build and publish release artifacts
+
 jobs:
   build-and-publish-release-artifacts:
     name: release ${{ matrix.goos }}/${{ matrix.goarch }}
