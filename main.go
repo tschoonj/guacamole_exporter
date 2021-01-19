@@ -45,6 +45,8 @@ var (
 	metricsPath = flag.String("web.telemetry-path", "/metrics",
 		"Path under which to expose metrics")
 
+	version = flag.Bool("version", false, "Show version information")
+
 	// Metrics
 	up = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "up"),
@@ -249,6 +251,11 @@ func main() {
 	}
 
 	flag.Parse()
+
+	if *version {
+		println("guacamole_exporter, version 0.1.0")
+		return
+	}
 
 	guacamoleEndpoint := os.Getenv("GUACAMOLE_ENDPOINT")
 	guacamoleUsername := os.Getenv("GUACAMOLE_USERNAME")
