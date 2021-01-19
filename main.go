@@ -45,6 +45,8 @@ var (
 	metricsPath = flag.String("web.telemetry-path", "/metrics",
 		"Path under which to expose metrics")
 
+	version = flag.Bool("version", false, "Show version information")
+
 	// Metrics
 	up = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "up"),
@@ -250,33 +252,15 @@ func main() {
 
 	flag.Parse()
 
+	if *version {
+		println("guacamole_exporter, version 0.1.0")
+		return
+	}
+
 	guacamoleEndpoint := os.Getenv("GUACAMOLE_ENDPOINT")
 	guacamoleUsername := os.Getenv("GUACAMOLE_USERNAME")
 	guacamolePassword := os.Getenv("GUACAMOLE_PASSWORD")
 	guacamoleDataSource := os.Getenv("GUACAMOLE_DATASOURCE")
-
-	/*token, err := getToken(guacamoleEndpoint, guacamoleUsername, guacamolePassword)
-	log.Println("token ", token)
-
-	activeConnections, err := getActiveConnections(guacamoleEndpoint, token, guacamoleDataSource)
-	if err != nil {
-		log.Fatalf("%v", err)
-	}
-	log.Println("activeConnections", activeConnections)
-
-	registeredUsers, err := getUsers(guacamoleEndpoint, token, guacamoleDataSource)
-	if err != nil {
-		log.Fatalf("%v", err)
-	}
-	log.Println("registeredUsers", registeredUsers)
-
-	connectionHistory, err := getConnectionHistory(guacamoleEndpoint, token, guacamoleDataSource)
-	if err != nil {
-		log.Fatalf("%v", err)
-	}
-	log.Println("connectionHistory", connectionHistory)
-
-	releaseToken(guacamoleEndpoint, token)*/
 
 	exporter := newExporter(guacamoleEndpoint, guacamoleUsername, guacamolePassword, guacamoleDataSource)
 	prometheus.MustRegister(exporter)
