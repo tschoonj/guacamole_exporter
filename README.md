@@ -1,3 +1,5 @@
+![CI](https://github.com/tschoonj/guacamole_exporter/workflows/CI/badge.svg?branch=master&event=push)
+
 # Guacamole Exporter
 
 Export [Guacamole](https://guacamole.apache.org) statistics to [Prometheus](https://prometheus.io).
