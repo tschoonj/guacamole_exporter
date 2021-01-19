@@ -253,7 +253,7 @@ func main() {
 	flag.Parse()
 
 	if *version {
-		println("guacamole_exporter, version 0.1.0")
+		println("guacamole_exporter, version 0.1.1")
 		return
 	}
 
