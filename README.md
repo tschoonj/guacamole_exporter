@@ -1,7 +1,6 @@
 # Guacamole Exporter
 
-Export [Guacamole](https://guacamole.apache.org) channel
-statistics to [Prometheus](https://prometheus.io).
+Export [Guacamole](https://guacamole.apache.org) statistics to [Prometheus](https://prometheus.io).
 
 Metrics are retrieved using the Guacamole REST API. As the official documentation currently does not cover this API, [ridvanaltun](https://github.com/ridvanaltun/guacamole-rest-api-documentation)'s attempt at documenting was most useful.
 
