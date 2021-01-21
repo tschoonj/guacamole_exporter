@@ -37,6 +37,16 @@ GUACAMOLE_PASSWORD=admin
 GUACAMOLE_DATASOURCE=mysql
 ```
 
-## Notice
+## Grafana dashboard
+
+An example dashboard can be found [here](dashboard/guacamole_usage_dashboard.json). After loading it into your Grafana instance, and assuming your Prometheus datastream is scraping your guacamole_exporter, you should get something like this:
+
+![Guacamole Usage on Grafana](dashboard/grafana.png)
+
+## Deployment
+
+I have written an [Ansible role](https://github.com/tschoonj/ansible-role-guacamole-exporter) to facilitate installation on Linux machines. It works very well when combined with the [Cloudalchemy Ansible roles](https://github.com/cloudalchemy) for installing Grafana, Prometheus, Node exporter etc.
+
+## Acknowledgements
 
 This exporter is strongly inspired by the [mirth_channel_exporter](https://github.com/teamzerolabs/mirth_channel_exporter), which gives a very clear and concise example of how to write a Prometheus exporter in Go, and convinced me that it was feasible to write one myself in just a couple of hours even though I had never written a line of Go before...
