@@ -31,11 +31,26 @@ To run it:
 
 Use a .env file in the local folder, or /etc/sysconfig/guacamole_exporter when running on a Linux distro with SystemD
 ```
-GUACAMOLE_ENDPOINT=https://guacamole.yourcompane.com
+GUACAMOLE_ENDPOINT=https://guacamole.yourcompany.com
 GUACAMOLE_USERNAME=admin
 GUACAMOLE_PASSWORD=admin
 GUACAMOLE_DATASOURCE=mysql
 ```
+
+## Docker
+
+You can also use the guacamole_exporter using the official Docker image:
+
+```bash
+docker run -d -p 9623:9623 \
+    --name="guacamole-exporter" \
+    -e GUACAMOLE_ENDPOINT=https://guacamole.yourcompany.com \
+    -e GUACAMOLE_USERNAME=admin \
+    -e GUACAMOLE_PASSWORD=admin \
+    -e GUACAMOLE_DATASOURCE=mysql \
+    tomschoonjans/guacamole-exporter
+```
+
 
 ## Grafana dashboard
 
